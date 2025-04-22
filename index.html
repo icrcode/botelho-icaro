@@ -1,57 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ícaro Botelho</title>
-    </head>
-
-    <body bgcolor="#F8F4E7" text="#552800">
-        <h1>Ícaro Caldeira Botelho</h1>
-        <img src="Eu.png" width="150" align="left" alt="Imagem de perfil do Ícaro Botelho">
-        <br>
-        <i>
-            <p>ㅤㅤEstudante de Egenharia de Software
-                <br>
-                ㅤㅤEspecialista de Ensino I - Senai
-                <br>
-                <br>
-                ㅤㅤOrganizado, com perfil analítico e sempre disposto a ensinar!
-            </p>
-            <br>
-            <br>
-        </i>
-        <hr>
-        <section>
-            <h2>Formação Acadêmica</h2>
-            <ul>
-                <li>Universidade de Tecnológia SENAI - Técnico em Desenvolvimento de Sistemas</li>
-                <li>Universidade Católica de Santa Catarina - Engenharia de Software</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Experiências Profissionais</h3>
-            <dl>
-                <dt>Whirlpool Corporation - 2020</dt>
-                <dd>
-                    <li>Auxiliar Técnico</li>
-                    <li>Controlador de Produção I</li>
-                </dd>
-                <dt>Senai - 2022</dt>
-                <dd>
-                    <li>Docente Trainee</li>
-                    <li>Especialista de Ensino I</li>
-                </dd>
-            </dl>
-        </section>
-        <section>
-            <footer>
-                <em>Contato: ✉ icarobotelhosocial@gmail.com </em>
-                <br>
-                <em>LinkedIn: www.linkedin.com/in/icarocbotelho</em>
-            </footer>
-        </section>
-    </body>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Lumon - Portfólio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/crt-filter.css">
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+</head>
+<body class="crt-effect">
+    <div class="scanlines"></div>
+    <div class="crt-edges"></div>
+    <div class="crt-screen">
+        <div class="crt-content">
+            <div class="terminal-container pixelate">
+                <div class="terminal-header">
+                    <div class="logo">LUMON</div>
+                    <div class="status-bar">
+                        <span class="date-time" id="datetime">00:00:00</span>
+                        <span class="status">SISTEMA OPERACIONAL</span>
+                    </div>
+                </div>
+                <div class="terminal-screen">
+                    <div class="scan-line"></div>
+                    
+                    <div class="login-screen" id="login-screen">
+                        <div class="welcome-message">
+                            <div class="typing-effect" id="welcome-text">Bem-vindo ao Terminal Lumon.
+                                Por favor, insira suas credenciais para acessar o sistema.</div>
+                        </div>
+                        <div class="login-form">
+                            <div class="input-group">
+                                <label for="username">USUÁRIO:</label>
+                                <input type="text" id="username" autocomplete="off">
+                            </div>
+                            <div class="input-group">
+                                <label for="password">SENHA:</label>
+                                <input type="password" id="password" autocomplete="off">
+                            </div>
+                            <button id="login-btn" class="terminal-btn">ACESSAR</button>
+                        </div>
+                    </div>
+                    
+                    <div class="main-screen hidden" id="main-screen">
+                        <div class="menu-container">
+                            <div class="menu-header">MENU PRINCIPAL</div>
+                            <div class="welcome-message">
+                                <div class="menu-instruction">Bem-vindo ao Portifólio de Ícaro</div>
+                                <div class="menu-instruction">O site ainda está em desenvolvimento, por isso podem haver glitches e erros.</div>
+                                <div class="menu-instruction">Obrigado por visitar o meu portifólio.</div>
+                            </div>
+                            <div class="menu-options">
+                                <div class="menu-option" data-section="about">1. SOBRE</div>
+                                <div class="menu-option" data-section="skills">2. HABILIDADES</div>
+                                <div class="menu-option" data-section="projects">3. PROJETOS</div>
+                                <div class="menu-option" data-section="experience">4. EXPERIÊNCIA</div>
+                                <div class="menu-option" data-section="contact">5. CONTATO</div>
+                            </div>
+                            <div class="menu-instruction">Selecione uma opção digitando o número correspondente.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-screen hidden" id="about-section">
+                        <div class="section-header">SOBRE</div>
+                        <div class="section-content">
+                            <div class="profile-info">
+                                <h2 id="profile-name"></h2>
+                                <h3 id="profile-title"></h3>
+                                <p id="profile-location"></p>
+                            </div>
+                            <div class="profile-description">
+                                <p id="profile-description"></p>
+                            </div>
+                            <div class="education-info">
+                                <h3>FORMAÇÃO</h3>
+                                <div id="education-list"></div>
+                            </div>
+                        </div>
+                        <button class="back-btn terminal-btn">VOLTAR</button>
+                    </div>
+                    
+                    <div class="content-screen hidden" id="skills-section">
+                        <div class="section-header">HABILIDADES</div>
+                        <div class="section-content">
+                            <div class="skills-grid" id="skills-grid"></div>
+                            <div class="skills-bars">
+                                <h3>NÍVEIS DE PROFICIÊNCIA</h3>
+                                <div id="skills-list"></div>
+                            </div>
+                        </div>
+                        <button class="back-btn terminal-btn">VOLTAR</button>
+                    </div>
+                    
+                    <div class="content-screen hidden" id="projects-section">
+                        <div class="section-header">PROJETOS</div>
+                        <div class="section-content">
+                            <div id="projects-list"></div>
+                        </div>
+                        <button class="back-btn terminal-btn">VOLTAR</button>
+                    </div>
+                    
+                    <div class="content-screen hidden" id="experience-section">
+                        <div class="section-header">EXPERIÊNCIA</div>
+                        <div class="section-content">
+                            <div id="experience-list"></div>
+                        </div>
+                        <button class="back-btn terminal-btn">VOLTAR</button>
+                    </div>
+                    
+                    <div class="content-screen hidden" id="contact-section">
+                        <div class="section-header">CONTATO</div>
+                        <div class="section-content">
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <span class="contact-label">EMAIL:</span>
+                                    <span id="contact-email"></span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-label">LINKEDIN:</span>
+                                    <a id="contact-linkedin" target="_blank"></a>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-label">GITHUB:</span>
+                                    <a id="contact-github" target="_blank"></a>
+                                </div>
+                            </div>
+                            <div class="contact-message">
+                                <p>Para entrar em contato, envie uma mensagem através de um dos canais acima.</p>
+                                <p>AVISO: Todas as comunicações são monitoradas pela Lumon Industries.</p>
+                            </div>
+                        </div>
+                        <button class="back-btn terminal-btn">VOLTAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/portfolio-data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/crt-effects.js"></script>
+    <script>
+        // Adiciona efeito de glitch ocasional
+        setInterval(function() {
+            const content = document.querySelector('.crt-content');
+            content.classList.add('glitch');
+            setTimeout(function() {
+                content.classList.remove('glitch');
+            }, 200);
+        }, Math.random() * 10000 + 5000);
+    </script>
+</body>
 </html>

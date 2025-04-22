@@ -1,0 +1,313 @@
+/* CRT Monitor Effect */
+.crt-effect {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Distorção de monitor CRT */
+.crt-effect::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Efeito de curvatura do monitor */
+.crt-effect::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 80%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 30% / 10%;
+    transform: scale(1.2, 1.2);
+}
+
+/* Efeito de brilho e reflexo de monitor antigo */
+.crt-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: turn-on 2s linear;
+    perspective: 900px;
+    filter: brightness(1.1) contrast(1.2) saturate(1.1);
+}
+
+/* Efeito de curvatura e distorção 3D */
+.crt-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: perspective(900px) rotateX(1deg);
+    transform-origin: center center;
+    animation: flicker 0.15s infinite;
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.8);
+    clip-path: ellipse(100% 95% at 50% 50%);
+}
+
+/* Linhas de varredura */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 51%,
+        transparent 51%
+    );
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Efeito de cintilação leve */
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.98;
+    }
+}
+
+/* Efeito de ligar o monitor */
+@keyframes turn-on {
+    0% {
+        transform: scale(1, 0.8) translate3d(0, 0, 0);
+        filter: brightness(30);
+        opacity: 1;
+    }
+    3.5% {
+        transform: scale(1, 0.8) translate3d(0, 100%, 0);
+    }
+    3.6% {
+        transform: scale(1, 0.8) translate3d(0, -100%, 0);
+        opacity: 1;
+    }
+    9% {
+        transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+        filter: brightness(30);
+        opacity: 0;
+    }
+    11% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        filter: contrast(0) brightness(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        filter: contrast(1) brightness(1.2) saturate(1.1);
+        opacity: 1;
+    }
+}
+
+/* Distorção de som ao ligar */
+@keyframes sound {
+    0% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+    20% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+/* Distorção e aberrações cromáticas nos cantos */
+.crt-edges {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 
+        inset 0 0 100px 40px rgba(0, 0, 0, 0.8),
+        inset 0 0 10px 5px rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Efeito de pixels visíveis */
+.pixelate {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Glitch ocasional */
+.crt-content.glitch {
+    animation: glitch-animation 0.3s infinite;
+}
+
+@keyframes glitch-animation {
+    0% {
+        clip-path: inset(30% 0 36% 0);
+        transform: translate(-2px, 3px);
+    }
+    20% {
+        clip-path: inset(54% 0 8% 0);
+        transform: translate(2px, -4px);
+    }
+    40% {
+        clip-path: inset(15% 0 78% 0);
+        transform: translate(3px, 1px);
+    }
+    60% {
+        clip-path: inset(65% 0 16% 0);
+        transform: translate(-5px, -2px);
+    }
+    80% {
+        clip-path: inset(6% 0 89% 0);
+        transform: translate(4px, 4px);
+    }
+    100% {
+        clip-path: inset(39% 0 55% 0);
+        transform: translate(-3px, -2px);
+    }
+}
+
+/* Aplicar filtros globalmente */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Efeito de monitor desligando rápido */
+.crt-content.power-off {
+    animation: power-off 0.15s forwards;
+}
+
+@keyframes power-off {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        filter: brightness(1);
+    }
+    10% {
+        transform: scale(1, 0.01);
+        opacity: 0.8;
+        filter: brightness(2);
+    }
+    100% {
+        transform: scale(0, 0.01);
+        opacity: 0;
+        filter: brightness(0);
+    }
+}
+
+/* Efeito de ligamento melhorado */
+.crt-effect.on .crt-screen {
+    filter: brightness(1.1) contrast(1.2) saturate(1.1);
+}
+
+.crt-effect:not(.on) .crt-screen {
+    filter: brightness(0) contrast(0) saturate(0);
+}
+
+/* Efeito de textura de pixel */
+.pixelate {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Adiciona ruído de fundo */
+.crt-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QMaAyYhBrG91AAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAG4SURBVGje7dpBbsIwEAXQoZTeosSGy3ALLsEl2HCYbrtrpR4EaBKnTgJJaP4rxfkjjZ2ZxHEKQwgh5Xy9YQ6eUfC5L9ha/OQ8b8Czj9659zPuOI8uyeM5mLxWzst1khvulSeww3c9OhZ/FCtHkTzSKHkkz7e9dO8/9iQDjs+g+eSReM+MFpRH4r0+NIN4pK/J7wlbKY/0wSSP9D1NeCSHEB6J9eJQJ+WRWpMnYau/CSQeu1Z1veIYQnIqb6H1/3o2mK+P10eP0oPwSDzuWpIjOQnhkXwDwiO5jiGE8Eg8o23kkeY9m3xwR2RaSh6px/LNuDnhkdzF80hezYqY2YUv5L322POgubNYhUdyF88jP0keeSSPhBBCeDQkeb4wy+evvlx/1qoXPJJbO4/kFo9HtuWRzNp5ZE/yyE4TgEfO45EfJI/sTB7Z0xR5pGsPPFIoj+QM5pF97QWPFM4j/eWR1sMjZ/BI0/LIniE8Uop2HilcO4+cpT0gj5SunUfy5JFXnBweaaXdII+0GtAh8khLAV3TdvLIX8kjrQaUR97vmV+trAAqStTEIAAAAABJRU5ErkJggg==');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 4;
+    mix-blend-mode: overlay;
+}
+
+/* Adiciona mais aberrações cromáticas */
+.crt-edges::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 0, 0, 0.1),
+        transparent 10%,
+        transparent 90%,
+        rgba(0, 0, 255, 0.1)
+    );
+    z-index: 3;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+/* Adicionar ondulação ao fundo para parecer mais distorcido */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-radial-gradient(
+        circle at center,
+        transparent 0,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 3;
+    animation: wave 10s infinite linear;
+    opacity: 0.4;
+}
+
+@keyframes wave {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+} 

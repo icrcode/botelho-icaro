@@ -10,17 +10,17 @@
 
 :root {
     /* Cores do Terminal */
-    --bg-color: #113449;
-    --text-color: #BDFFFF;
-    --terminal-green: #00c896;
-    --terminal-bg: #163244;
-    --dark-text: #1a2b32;
-    --terminal-white: #e0e9e9;
+    --bg-color: #492811;
+    --text-color: #ffd2bd;
+    --terminal-green: #c84900;
+    --terminal-bg: #442516;
+    --dark-text: #32201a;
+    --terminal-white: #e9e2e0;
     --terminal-gray: #333333;
-    --terminal-border: #00c896;
-    --terminal-highlight: #00c896;
+    --terminal-border: #c84900;
+    --terminal-highlight: #c84900;
     --terminal-error: #c34a36;
-    --divider-color: rgba(189, 255, 255, 0.15);
+    --divider-color: rgba(255, 212, 189, 0.15);
     --container-width: 100%;
     --border-radius: 0px;
 }
@@ -45,7 +45,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-image: radial-gradient(rgba(25, 65, 100, 1), black 120%);
+    background-image: radial-gradient(rgb(100, 41, 25), black 120%);
     position: relative;
     font-weight: 500;
     font-feature-settings: "cv11";
@@ -195,7 +195,7 @@ body::after {
 }
 
 .input-group input {
-    background-color: rgba(10, 25, 34, 0.7);
+    background-color: rgba(34, 21, 10, 0.7);
     border: 1px solid var(--divider-color);
     padding: 14px;
     color: var(--text-color);
@@ -210,7 +210,7 @@ body::after {
 }
 
 .terminal-btn {
-    background-color: rgba(0, 200, 150, 0.1);
+    background-color: rgba(200, 73, 0, 0.1);
     border: 1px solid var(--terminal-green);
     color: var(--terminal-green);
     padding: 16px 30px;
@@ -225,7 +225,7 @@ body::after {
 }
 
 .terminal-btn:hover {
-    background-color: rgba(0, 200, 150, 0.2);
+    background-color: rgba(200, 70, 0, 0.2);
 }
 
 .terminal-btn:active {
@@ -241,7 +241,7 @@ body::after {
 }
 
 .menu-header {
-    font-family: 'Lumon Industries', sans-serif;
+    font-family: 'Inter', monospace;    
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
@@ -295,7 +295,7 @@ body::after {
 }
 
 .section-header {
-    font-family: 'Lumon Industries', sans-serif;
+    font-family: 'Inter', monospace;    
     font-size: 1.8rem;
     margin-bottom: 25px;
     padding-bottom: 15px;
@@ -357,7 +357,7 @@ body::after {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    border: 1px solid rgba(0, 200, 150, 0.3);
+    border: 1px solid rgba(200, 70, 0, 0.3);
     color: var(--terminal-green);
 }
 
@@ -391,18 +391,55 @@ body::after {
 }
 
 @keyframes blink {
-    0% { background-color: rgba(0, 200, 150, 1) }
-    50% { background-color: rgba(0, 200, 150, 0.5) }
-    100% { background-color: rgba(0, 200, 150, 1) }
+    0% { background-color: rgb(200, 87, 0) }
+    50% { background-color: rgba(200, 60, 0, 0.5) }
+    100% { background-color: rgb(200, 70, 0) }
 }
 
-/* Estilos para seção Sobre */
+/* Profile header with image */
+.profile-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Update profile info styles to work with header layout */
 .profile-info {
-    margin-bottom: 25px;
+    flex: 1;
+    padding-top: 5px;
 }
 
 .profile-info h2 {
-    font-family: 'Lumon Industries', sans-serif;
+    font-family: 'Inter', monospace;    
     font-size: 1.6rem;
     margin-bottom: 5px;
     color: var(--terminal-green);
@@ -617,7 +654,7 @@ body::after {
 }
 
 .project-header a:hover {
-    background-color: rgba(0, 200, 150, 0.1);
+    background-color: rgba(200, 80, 0, 0.1);
 }
 
 .project-item p {
@@ -829,5 +866,19 @@ body::after {
     
     .contact-label {
         margin-bottom: 5px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin-bottom: 15px;
+    }
+
+    .profile-info {
+        padding-top: 0;
     }
 }

@@ -1,8 +1,8 @@
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Lumon - Portfólio</title>
+    <title>Lumon Terminal - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/crt-filter.css">
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
@@ -17,7 +17,7 @@
                     <div class="logo">LUMON</div>
                     <div class="status-bar">
                         <span class="date-time" id="datetime">00:00:00</span>
-                        <span class="status">SISTEMA OPERACIONAL</span>
+                        <span class="status">OPERATING SYSTEM</span>
                     </div>
                 </div>
                 <div class="terminal-screen">
@@ -25,90 +25,95 @@
                     
                     <div class="login-screen" id="login-screen">
                         <div class="welcome-message">
-                            <div class="typing-effect" id="welcome-text">Bem-vindo ao Terminal Lumon.
-                                Por favor, insira suas credenciais para acessar o sistema.</div>
+                            <div class="typing-effect" id="welcome-text">Welcome to Lumon Terminal.
+                                Please enter your credentials to access the system.</div>
                         </div>
                         <div class="login-form">
                             <div class="input-group">
-                                <label for="username">USUÁRIO:</label>
+                                <label for="username">USERNAME:</label>
                                 <input type="text" id="username" autocomplete="off">
                             </div>
                             <div class="input-group">
-                                <label for="password">SENHA:</label>
+                                <label for="password">PASSWORD:</label>
                                 <input type="password" id="password" autocomplete="off">
                             </div>
-                            <button id="login-btn" class="terminal-btn">ACESSAR</button>
+                            <button id="login-btn" class="terminal-btn">ACCESS</button>
                         </div>
                     </div>
                     
                     <div class="main-screen hidden" id="main-screen">
                         <div class="menu-container">
-                            <div class="menu-header">MENU PRINCIPAL</div>
+                            <div class="menu-header">MAIN MENU</div>
                             <div class="welcome-message">
-                                <div class="menu-instruction">Bem-vindo ao Portifólio de Ícaro</div>
-                                <div class="menu-instruction">O site ainda está em desenvolvimento, por isso podem haver glitches e erros.</div>
-                                <div class="menu-instruction">Obrigado por visitar o meu portifólio.</div>
+                                <div class="menu-instruction">Welcome to Icaro's Portfolio</div>
+                                <div class="menu-instruction">This site is still under development, so there may be glitches and errors.</div>
+                                <div class="menu-instruction">Thank you for visiting my portfolio.</div>
                             </div>
                             <div class="menu-options">
-                                <div class="menu-option" data-section="about">1. SOBRE</div>
-                                <div class="menu-option" data-section="skills">2. HABILIDADES</div>
-                                <div class="menu-option" data-section="projects">3. PROJETOS</div>
-                                <div class="menu-option" data-section="experience">4. EXPERIÊNCIA</div>
-                                <div class="menu-option" data-section="contact">5. CONTATO</div>
+                                <div class="menu-option" data-section="about">1. ABOUT</div>
+                                <div class="menu-option" data-section="skills">2. SKILLS</div>
+                                <div class="menu-option" data-section="projects">3. PROJECTS</div>
+                                <div class="menu-option" data-section="experience">4. EXPERIENCE</div>
+                                <div class="menu-option" data-section="contact">5. CONTACT</div>
                             </div>
-                            <div class="menu-instruction">Selecione uma opção digitando o número correspondente.</div>
+                            <div class="menu-instruction">Select an option by typing the corresponding number.</div>
                         </div>
                     </div>
                     
                     <div class="content-screen hidden" id="about-section">
-                        <div class="section-header">SOBRE</div>
+                        <div class="section-header">ABOUT</div>
                         <div class="section-content">
-                            <div class="profile-info">
-                                <h2 id="profile-name"></h2>
-                                <h3 id="profile-title"></h3>
-                                <p id="profile-location"></p>
+                            <div class="profile-header">
+                                <div class="profile-image">
+                                    <img src="images/profile.png" alt="Ícaro Caldeira Botelho">
+                                </div>
+                                <div class="profile-info">
+                                    <h2 id="profile-name"></h2>
+                                    <h3 id="profile-title"></h3>
+                                    <p id="profile-location"></p>
+                                </div>
                             </div>
                             <div class="profile-description">
                                 <p id="profile-description"></p>
                             </div>
                             <div class="education-info">
-                                <h3>FORMAÇÃO</h3>
+                                <h3>EDUCATION</h3>
                                 <div id="education-list"></div>
                             </div>
                         </div>
-                        <button class="back-btn terminal-btn">VOLTAR</button>
+                        <button class="back-btn terminal-btn">BACK</button>
                     </div>
                     
                     <div class="content-screen hidden" id="skills-section">
-                        <div class="section-header">HABILIDADES</div>
+                        <div class="section-header">SKILLS</div>
                         <div class="section-content">
                             <div class="skills-grid" id="skills-grid"></div>
                             <div class="skills-bars">
-                                <h3>NÍVEIS DE PROFICIÊNCIA</h3>
+                                <h3>PROFICIENCY LEVELS</h3>
                                 <div id="skills-list"></div>
                             </div>
                         </div>
-                        <button class="back-btn terminal-btn">VOLTAR</button>
+                        <button class="back-btn terminal-btn">BACK</button>
                     </div>
                     
                     <div class="content-screen hidden" id="projects-section">
-                        <div class="section-header">PROJETOS</div>
+                        <div class="section-header">PROJECTS</div>
                         <div class="section-content">
                             <div id="projects-list"></div>
                         </div>
-                        <button class="back-btn terminal-btn">VOLTAR</button>
+                        <button class="back-btn terminal-btn">BACK</button>
                     </div>
                     
                     <div class="content-screen hidden" id="experience-section">
-                        <div class="section-header">EXPERIÊNCIA</div>
+                        <div class="section-header">EXPERIENCE</div>
                         <div class="section-content">
                             <div id="experience-list"></div>
                         </div>
-                        <button class="back-btn terminal-btn">VOLTAR</button>
+                        <button class="back-btn terminal-btn">BACK</button>
                     </div>
                     
                     <div class="content-screen hidden" id="contact-section">
-                        <div class="section-header">CONTATO</div>
+                        <div class="section-header">CONTACT</div>
                         <div class="section-content">
                             <div class="contact-info">
                                 <div class="contact-item">
@@ -125,11 +130,11 @@
                                 </div>
                             </div>
                             <div class="contact-message">
-                                <p>Para entrar em contato, envie uma mensagem através de um dos canais acima.</p>
-                                <p>AVISO: Todas as comunicações são monitoradas pela Lumon Industries.</p>
+                                <p>To get in touch, send a message through one of the channels above.</p>
+                                <p>WARNING: All communications are monitored by Lumon Industries.</p>
                             </div>
                         </div>
-                        <button class="back-btn terminal-btn">VOLTAR</button>
+                        <button class="back-btn terminal-btn">BACK</button>
                     </div>
                 </div>
             </div>
@@ -138,15 +143,5 @@
     <script src="js/portfolio-data.js"></script>
     <script src="js/script.js"></script>
     <script src="js/crt-effects.js"></script>
-    <script>
-        // Adiciona efeito de glitch ocasional
-        setInterval(function() {
-            const content = document.querySelector('.crt-content');
-            content.classList.add('glitch');
-            setTimeout(function() {
-                content.classList.remove('glitch');
-            }, 200);
-        }, Math.random() * 10000 + 5000);
-    </script>
 </body>
 </html>

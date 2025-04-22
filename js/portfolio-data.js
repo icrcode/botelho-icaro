@@ -1,18 +1,18 @@
-// Dados do portfólio
+// Portfolio data
 const portfolioData = {
     about: {
         name: "Ícaro Caldeira Botelho",
-        title: "Professor de Desenvolvimento de Sistemas | Estudante de Engenharia de Software",
-        location: "Joinville, Santa Catarina, Brasil",
-        description: `Profissional de tecnologia com experiência em desenvolvimento de sistemas e educação técnica. 
-        Atualmente atuo como Instrutor de Desenvolvimento de Sistemas no SENAI/SC, 
-        compartilhando conhecimentos e formando novos profissionais para o mercado de tecnologia.
+        title: "Systems Development Teacher | Software Engineering Student",
+        location: "Joinville, Santa Catarina, Brazil",
+        description: `Technology professional with experience in systems development and technical education.
+        I currently work as a Systems Development Instructor at SENAI/SC,
+        sharing knowledge and training new professionals for the technology market.
         
-        Sou estudante de Engenharia de Software na Católica SC, buscando constantemente aprimorar 
-        minhas habilidades técnicas e conhecimentos na área de desenvolvimento.
+        I am a Software Engineering student at Católica SC, constantly seeking to improve
+        my technical skills and knowledge in the development field.
         
-        Possuo experiência prévia na indústria, tendo atuado como Controlador de Produção I e 
-        Assistente Técnico em Laminação Plástica na Whirlpool Corporation.`
+        I have previous experience in the industry, having worked as a Production Controller I and
+        Technical Assistant in Plastic Lamination at Whirlpool Corporation.`
     },
     skills: [
         { name: "JavaScript", level: 85, certified: true },
@@ -22,82 +22,82 @@ const portfolioData = {
         { name: "CSS", level: 85, certified: false },
         { name: "MySQL", level: 80, certified: false },
         { name: "SQL", level: 80, certified: false },
-        { name: "Comunicação", level: 90, certified: false },
+        { name: "Communication", level: 90, certified: false },
         { name: "Microsoft Excel", level: 85, certified: true },
         { name: "Adobe Photoshop", level: 70, certified: false },
-        { name: "Dormir", level: 2, certified: false }
+        { name: "Sleep", level: 2, certified: false }
     ],
     projects: [
         {
-            name: "Biblioteca Digital de Babel",
-            description: "Uma implementação digital da Biblioteca de Babel, conceito criado por Jorge Luis Borges. Este projeto permite explorar uma biblioteca virtual que contém todos os textos possíveis.",
+            name: "Digital Library of Babel",
+            description: "A digital implementation of the Library of Babel, a concept created by Jorge Luis Borges. This project allows you to explore a virtual library that contains all possible texts.",
             technologies: ["JavaScript"],
             link: "https://github.com/icrcode/dbdnr-library-of-babel"
         },
         {
-            name: "API Node Express MySQL",
-            description: "Projeto de criação de uma API desenvolvida em Node.js utilizando o framework Express e o banco de dados MySQL. Este repositório demonstra a construção de uma API capaz de realizar operações de CRUD.",
+            name: "Node Express MySQL API",
+            description: "Project to create an API developed in Node.js using the Express framework and MySQL database. This repository demonstrates the construction of an API capable of performing CRUD operations.",
             technologies: ["JavaScript", "Node.js", "Express", "MySQL"],
             link: "https://github.com/icrcode/api-node-express-mysql2"
         },
         {
-            name: "Portfólio Pessoal",
-            description: "Meu primeiro site que desenvolvi na minha vida! A ideia era criar um currículo/portfólio. Sempre gosto de revisitá-lo para observar o quanto evolui ao longo do tempo.",
+            name: "Personal Portfolio",
+            description: "My first website that I developed in my life! The idea was to create a resume/portfolio. I always like to revisit it to observe how much I've evolved over time.",
             technologies: ["HTML"],
             link: "https://github.com/icrcode/botelho-icaro"
         },
         {
-            name: "Algoritmos de Ordenação",
-            description: "Repositório dedicado ao estudo e implementação de algoritmos de ordenação. Aqui, exploramos conceitos teóricos, análises de complexidade e implementações práticas de diversos métodos de ordenação.",
+            name: "Sorting Algorithms",
+            description: "Repository dedicated to the study and implementation of sorting algorithms. Here, we explore theoretical concepts, complexity analyses, and practical implementations of various sorting methods.",
             technologies: ["Python"],
             link: "https://github.com/icrcode/ordenacao-v4"
         },
         {
-            name: "Sistema de Gerenciamento de Usuários",
-            description: "Um sistema simples de gerenciamento de usuários construído com PHP e MySQL, projetado para permitir registro de usuários, login, upload de fotos de perfil e visualização de todos os usuários registrados.",
+            name: "User Management System",
+            description: "A simple user management system built with PHP and MySQL, designed to allow user registration, login, profile photo uploads, and viewing of all registered users.",
             technologies: ["PHP", "MySQL"],
             link: "https://github.com/icrcode/crud-php"
         }
     ],
     experience: [
         {
-            title: "Instrutor de Desenvolvimento de Sistemas",
-            company: "SENAI/SC - Serviço Nacional de Aprendizagem Industrial",
-            period: "Dezembro 2023 - Presente",
-            description: "Atuação como professor de desenvolvimento de sistemas, formando novos profissionais para o mercado de tecnologia."
+            title: "Systems Development Instructor",
+            company: "SENAI/SC - National Service for Industrial Learning",
+            period: "December 2023 - Present",
+            description: "Working as a systems development teacher, training new professionals for the technology market."
         },
         {
-            title: "Instrutor Trainee",
-            company: "SENAI/SC - Serviço Nacional de Aprendizagem Industrial",
-            period: "Agosto 2023 - Dezembro 2023",
-            description: "Programa de formação para instrutores, com foco em metodologias de ensino e práticas pedagógicas."
+            title: "Trainee Instructor",
+            company: "SENAI/SC - National Service for Industrial Learning",
+            period: "August 2023 - December 2023",
+            description: "Training program for instructors, focusing on teaching methodologies and pedagogical practices."
         },
         {
-            title: "Controlador de Produção I",
+            title: "Production Controller I",
             company: "Whirlpool Corporation",
-            period: "Julho 2022 - Julho 2023",
-            description: "Atuação no controle e monitoramento de processos produtivos."
+            period: "July 2022 - July 2023",
+            description: "Working in the control and monitoring of production processes."
         },
         {
-            title: "Assistente Técnico em Laminação Plástica",
+            title: "Technical Assistant in Plastic Lamination",
             company: "Whirlpool Corporation",
-            period: "Março 2021 - Junho 2022",
-            description: "Programa de aprendizagem com foco em processos técnicos de laminação plástica."
+            period: "March 2021 - June 2022",
+            description: "Apprenticeship program focusing on technical processes of plastic lamination."
         }
     ],
     education: [
         {
-            degree: "Bacharelado em Engenharia de Software",
+            degree: "Bachelor's Degree in Software Engineering",
             institution: "Católica SC",
-            period: "Em andamento"
+            period: "In progress"
         },
         {
-            degree: "Técnico em Desenvolvimento de Sistemas",
+            degree: "Systems Development Technician",
             institution: "SENAI/SC",
-            period: "Concluído"
+            period: "Completed"
         },
         {
-            course: "Algoritmo e Linguagem de Programação em Arduino",
+            course: "Algorithm and Programming Language in Arduino",
             institution: "ALPHA - UDESC Joinville"
         },
         {
@@ -105,11 +105,11 @@ const portfolioData = {
             institution: "SENAI/SC"
         },
         {
-            course: "Robótica Móvel - EV3",
+            course: "Mobile Robotics - EV3",
             institution: "UDESC Joinville"
         },
         {
-            course: "Desenvolvimento de Projetos no Ensino de Programação",
+            course: "Project Development in Programming Teaching",
             institution: "SENAI/SC"
         }
     ],

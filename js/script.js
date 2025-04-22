@@ -1,6 +1,6 @@
-// Funções para manipulação do terminal
+// Functions for terminal manipulation
 document.addEventListener('DOMContentLoaded', function() {
-    // Elementos do DOM
+    // DOM Elements
     const loginScreen = document.getElementById('login-screen');
     const mainScreen = document.getElementById('main-screen');
     const loginBtn = document.getElementById('login-btn');
@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const backButtons = document.querySelectorAll('.back-btn');
     const datetimeElement = document.getElementById('datetime');
     
-    // Adicionar linha de scan
+    // Add scan line
     const terminalScreen = document.querySelector('.terminal-screen');
     const scanLine = document.createElement('div');
     scanLine.classList.add('scan-line');
     terminalScreen.appendChild(scanLine);
     
-    // Atualizar data e hora
+    // Update date and time
     function updateDateTime() {
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
         datetimeElement.textContent = `${hours}:${minutes}:${seconds}`;
     }
     
-    // Atualizar a cada segundo
+    // Update every second
     setInterval(updateDateTime, 1000);
     updateDateTime();
     
-    // Efeito de digitação para textos de boas-vindas
+    // Typing effect for welcome texts
     function typeEffect(element) {
         const text = element.textContent;
         element.textContent = '';
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 i++;
             } else {
                 clearInterval(timer);
-                // Adicionar cursor piscante ao final
+                // Add blinking cursor at the end
                 const caret = document.createElement('span');
                 caret.classList.add('terminal-caret');
                 element.appendChild(caret);
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 50);
     }
     
-    // Aplicar efeito de digitação aos textos de boas-vindas
+    // Apply typing effect to welcome texts
     const welcomeText = document.getElementById('welcome-text');
     const instructionText = document.getElementById('instruction-text');
     
@@ -60,15 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
         typeEffect(instructionText);
     }, 10000);
     
-    // Preencher conteúdo do portfólio com dados reais
+    // Fill portfolio content with real data
     function populatePortfolioContent() {
-        // Seção Sobre
+        // About Section
         document.getElementById('profile-name').textContent = portfolioData.about.name;
         document.getElementById('profile-title').textContent = portfolioData.about.title;
         document.getElementById('profile-location').textContent = portfolioData.about.location;
         document.getElementById('profile-description').textContent = portfolioData.about.description;
         
-        // Educação
+        // Education
         const educationList = document.getElementById('education-list');
         portfolioData.education.forEach(item => {
             const educationItem = document.createElement('div');
@@ -100,11 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
             educationList.appendChild(educationItem);
         });
         
-        // Seção Habilidades
+        // Skills Section
         //const skillsGrid = document.getElementById('skills-grid');
         //createDataGrid(skillsGrid, 5, 8);
 
-        //foi uma boa ideia mas não curti como ficou
+        //it was a good idea but I didn't like how it turned out
         
         const skillsList = document.getElementById('skills-list');
         portfolioData.skills.forEach(skill => {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const certBadge = document.createElement('span');
                 certBadge.classList.add('cert-badge');
                 certBadge.textContent = '✓';
-                certBadge.title = 'Certificado';
+                certBadge.title = 'Certified';
                 skillName.appendChild(certBadge);
             }
             skillItem.appendChild(skillName);
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
             skillsList.appendChild(skillItem);
         });
         
-        // Seção Projetos
+        // Projects Section
         const projectsList = document.getElementById('projects-list');
         portfolioData.projects.forEach(project => {
             const projectItem = document.createElement('div');
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const projectLink = document.createElement('a');
             projectLink.href = project.link;
             projectLink.target = '_blank';
-            projectLink.textContent = 'Ver Projeto';
+            projectLink.textContent = 'View Project';
             projectHeader.appendChild(projectLink);
             
             projectItem.appendChild(projectHeader);
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const techLabel = document.createElement('span');
             techLabel.classList.add('tech-label');
-            techLabel.textContent = 'Tecnologias: ';
+            techLabel.textContent = 'Technologies: ';
             techList.appendChild(techLabel);
             
             project.technologies.forEach((tech, index) => {
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
             projectsList.appendChild(projectItem);
         });
         
-        // Seção Experiência
+        // Experience Section
         const experienceList = document.getElementById('experience-list');
         portfolioData.experience.forEach(exp => {
             const expItem = document.createElement('div');
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
             experienceList.appendChild(expItem);
         });
         
-        // Seção Contato
+        // Contact Section
         document.getElementById('contact-email').textContent = portfolioData.contact.email;
         
         const linkedinLink = document.getElementById('contact-linkedin');
@@ -233,14 +233,14 @@ document.addEventListener('DOMContentLoaded', function() {
         githubLink.textContent = 'github.com/icrcode';
     }
     
-    // Função de login
+    // Login function
     loginBtn.addEventListener('click', function() {
-        // Simulação de login (qualquer credencial é aceita)
+        // Login simulation (any credential is accepted)
         if (username.value.trim() !== '' && password.value.trim() !== '') {
             loginScreen.classList.add('hidden');
             mainScreen.classList.remove('hidden');
             
-            // Efeito de terminal para o menu principal
+            // Terminal effect for the main menu
             const menuOptions = document.querySelectorAll('.menu-option');
             menuOptions.forEach((option, index) => {
                 setTimeout(() => {
@@ -248,31 +248,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 200 * index);
             });
         } else {
-            // Feedback visual para campos vazios
-            if (username.value.trim() === '') {
-                username.style.borderColor = 'var(--terminal-error)';
-                setTimeout(() => {
-                    username.style.borderColor = 'var(--divider-color)';
-                }, 1000);
-            }
-            
-            if (password.value.trim() === '') {
-                password.style.borderColor = 'var(--terminal-error)';
-                setTimeout(() => {
-                    password.style.borderColor = 'var(--divider-color)';
-                }, 1000);
-            }
+            // Show error message
+            alert('Please enter username and password.');
         }
     });
     
-    // Permitir login com Enter
-    password.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            loginBtn.click();
-        }
-    });
-    
-    // Navegação do menu
+    // Menu navigation
     menuOptions.forEach(option => {
         option.addEventListener('click', function() {
             const section = this.getAttribute('data-section');
@@ -281,104 +262,77 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Botões de voltar
+    // Handle number key presses for menu selection
+    document.addEventListener('keydown', function(e) {
+        if (mainScreen.classList.contains('hidden')) return;
+        
+        const key = e.key;
+        if (key >= '1' && key <= '5') {
+            const index = parseInt(key) - 1;
+            if (index < menuOptions.length) {
+                menuOptions[index].click();
+            }
+        }
+    });
+    
+    // Back button functionality
     backButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Esconder todas as telas de conteúdo
-            document.querySelectorAll('.content-screen').forEach(screen => {
-                screen.classList.add('hidden');
-            });
-            // Mostrar o menu principal
+            const contentScreen = this.closest('.content-screen');
+            contentScreen.classList.add('hidden');
             mainScreen.classList.remove('hidden');
         });
     });
     
-    // Navegação por teclado no menu principal
-    document.addEventListener('keydown', function(e) {
-        if (!mainScreen.classList.contains('hidden')) {
-            const key = e.key;
-            if (key >= '1' && key <= '5') {
-                const index = parseInt(key) - 1;
-                if (index < menuOptions.length) {
-                    menuOptions[index].click();
-                }
-            }
-        } else if (!loginScreen.classList.contains('hidden')) {
-            // Adicionar funcionalidade de tecla Escape para voltar à tela de login
-            if (e.key === 'Escape') {
-                // Voltar para a tela de login
-                document.querySelectorAll('.content-screen').forEach(screen => {
-                    screen.classList.add('hidden');
-                });
-                mainScreen.classList.add('hidden');
-                loginScreen.classList.remove('hidden');
-                
-                // Limpar campos de login
-                username.value = '';
-                password.value = '';
-                
-                // Reiniciar efeitos de digitação
-                welcomeText.style.width = '100%';
-                welcomeText.style.borderRight = '2px solid var(--terminal-green)';
-                instructionText.style.width = '100%';
-                instructionText.style.borderRight = '2px solid var(--terminal-green)';
-                
-                // Remover cursores piscantes anteriores
-                const carets = document.querySelectorAll('.terminal-caret');
-                carets.forEach(caret => caret.remove());
-                
-                // Reiniciar efeitos de digitação
-                typeEffect(welcomeText);
-                setTimeout(() => {
-                    typeEffect(instructionText);
-                }, 2000);
-            }
-        } else {
-            // Adicionar funcionalidade de tecla Escape para voltar ao menu principal
-            if (e.key === 'Escape') {
-                // Esconder todas as telas de conteúdo
-                document.querySelectorAll('.content-screen').forEach(screen => {
-                    screen.classList.add('hidden');
-                });
-                // Mostrar o menu principal
-                mainScreen.classList.remove('hidden');
-            }
+    // Populate the portfolio content once DOM is loaded
+    populatePortfolioContent();
+    
+    // Terminal animations and effects
+    document.querySelectorAll('.terminal-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.classList.add('highlight');
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.classList.remove('highlight');
+        });
+    });
+    
+    // Enter key to submit login
+    document.getElementById('password').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            loginBtn.click();
         }
     });
     
-    // Função para criar grid de dados (estilo MDR)
-    function createDataGrid(container, rows, cols) {
-        const grid = document.createElement('div');
-        grid.classList.add('data-grid');
-        
-        // Definir número de colunas
-        grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-        
-        // Criar células
-        for (let i = 0; i < rows * cols; i++) {
-            const cell = document.createElement('div');
-            cell.classList.add('data-cell');
-            
-            // Gerar número aleatório para cada célula
-            const randomNum = Math.floor(Math.random() * 10);
-            cell.textContent = randomNum;
-            
-            grid.appendChild(cell);
-        }
-        
-        container.appendChild(grid);
-    }
-    
-    // Ajustar altura do terminal para tela cheia em dispositivos móveis
+    // Adjust height of terminal-screen based on content
     function adjustHeight() {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        const contentHeight = Math.max(
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight,
+            document.documentElement.clientHeight
+        );
+        document.querySelector('.terminal-container').style.minHeight = `${contentHeight}px`;
     }
     
-    // Ajustar altura inicial e em redimensionamentos
-    adjustHeight();
+    // Call on load and resize
     window.addEventListener('resize', adjustHeight);
+    window.addEventListener('load', adjustHeight);
     
-    // Preencher o conteúdo do portfólio
-    populatePortfolioContent();
+    // Add terminal line effect
+    function addTerminalLine() {
+        const line = document.createElement('div');
+        line.classList.add('terminal-line');
+        document.querySelector('.terminal-container').appendChild(line);
+    }
+    
+    // Add some random flickering effects
+    setInterval(() => {
+        if (Math.random() > 0.98) {
+            document.querySelector('.terminal-container').classList.add('flicker');
+            setTimeout(() => {
+                document.querySelector('.terminal-container').classList.remove('flicker');
+            }, 100);
+        }
+    }, 2000);
 });

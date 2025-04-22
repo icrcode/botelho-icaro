@@ -4,20 +4,22 @@
 function applyDynamicCRTEffect() {
     const crtScreen = document.querySelector('.crt-screen');
     const crtContent = document.querySelector('.crt-content');
+    const scanlines = document.querySelector('.scanlines');
+    const edges = document.querySelector('.crt-edges');
     
     // Adiciona distorção leve quando o mouse se move
-    document.addEventListener('mousemove', function(e) {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
+    // document.addEventListener('mousemove', function(e) {
+    //     const x = e.clientX / window.innerWidth;
+    //     const y = e.clientY / window.innerHeight;
         
-        // Pequena distorção baseada na posição do mouse
-        // crtContent.style.transform = `
-        //     perspective(900px) 
-        //     rotateX(${1 + y}deg) 
-        //     rotateY(${x - 0.5}deg) 
-        //     scale(0.98, 0.98)
-        // `;
-    });
+    //     // Pequena distorção baseada na posição do mouse
+    //     crtContent.style.transform = `
+    //         perspective(900px) 
+    //         rotateX(${1 + y}deg) 
+    //         rotateY(${x - 0.5}deg) 
+    //         scale(0.98, 0.98)
+    //     `;
+    // });
     
     // Efeito de desligamento rápido ocasional
     function randomGlitch() {
@@ -36,9 +38,6 @@ function applyDynamicCRTEffect() {
         setTimeout(randomGlitch, Math.random() * 10000 + 2000);
     }
     
-    // Inicia glitches aleatórios
-    setTimeout(randomGlitch, 5000);
-    
     // Adiciona efeito de flicker (cintilação) nos elementos
     function addFlickerEffect() {
         const elements = document.querySelectorAll('.terminal-container, .terminal-btn, .menu-option');
@@ -56,29 +55,32 @@ function applyDynamicCRTEffect() {
     
     // Efeito de linhas de varredura em movimento
     function animateScanlines() {
-        const scanlines = document.querySelector('.scanlines');
         let position = 0;
         
         setInterval(() => {
             position += 0.5;
             if (position > 4) position = 0;
             
-            scanlines.style.backgroundPosition = `0 ${position}px`;
+            if (scanlines) {
+                scanlines.style.backgroundPosition = `0 ${position}px`;
+            }
         }, 50);
     }
     
     // Adiciona aberração cromática nos cantos da tela
     function addChromaticAberration() {
-        const edges = document.querySelector('.crt-edges');
         let intensity = 0.05;
         
         // Pulsa a intensidade da aberração
         setInterval(() => {
             intensity = 0.05 + Math.random() * 0.03;
-            edges.style.boxShadow = `
-                inset 0 0 100px 40px rgba(0, 0, 0, 0.8),
-                inset 0 0 ${10 + Math.random() * 5}px ${5 + Math.random() * 3}px rgba(255, 255, 255, ${intensity})
-            `;
+            
+            if (edges) {
+                edges.style.boxShadow = `
+                    inset 0 0 100px 40px rgba(0, 0, 0, 0.8),
+                    inset 0 0 ${10 + Math.random() * 5}px ${5 + Math.random() * 3}px rgba(255, 255, 255, ${intensity})
+                `;
+            }
         }, 2000);
     }
     
@@ -86,14 +88,18 @@ function applyDynamicCRTEffect() {
     addFlickerEffect();
     animateScanlines();
     addChromaticAberration();
+    
+    // Inicia glitches aleatórios após um tempo
+    setTimeout(randomGlitch, 5000);
 }
 
 // Inicia os efeitos quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
-    applyDynamicCRTEffect();
-    
     // Adiciona um pequeno atraso inicial para simular o ligamento do monitor
     setTimeout(() => {
         document.body.classList.add('on');
+        
+        // Inicializa os efeitos dinâmicos
+        applyDynamicCRTEffect();
     }, 1000);
 }); 
